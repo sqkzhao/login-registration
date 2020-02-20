@@ -28,7 +28,7 @@ def login(request):
         return redirect('/')
     else:
         user = User.objects.get(email=request.POST['email'])
-        request.session['user_name'] = user[0].first_name
+        request.session['user_name'] = user.first_name
         messages.success(request, "Successfully registered (or logged in)!")
         return redirect('/success')
         

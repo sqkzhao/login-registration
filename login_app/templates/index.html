@@ -14,8 +14,8 @@
                 <div class="alert alert-danger small" role="alert">{{message}}</div>
             {% endfor %}
         </div>
-        <div class="row">
-            <div class="col mt-3">
+        <div class="row justify-content-md-center">
+            <div class="col-5 mt-3">
                 <h1>Register</h1>
                 <form action="/register" method="post">
                     {% csrf_token %}
@@ -34,7 +34,7 @@
                     <input type="submit" value="Register" class="btn btn-secondary">
                 </form>
             </div>
-            <div class="col mt-3">
+            <div class="col-5 mt-3">
                 <h1>Login</h1>
                 <form action="/login" method="post">
                     {% csrf_token %}
