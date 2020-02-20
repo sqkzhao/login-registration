@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Login & Registration</title>
+</head>
+<body>
+    <div class="container mt-3">
+        <div>
+            {% for message in messages %}
+                <!-- if message.extra_tags == 'first_name' -->
+                <div class="alert alert-danger small" role="alert">{{message}}</div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col mt-3">
+                <h1>Register</h1>
+                <form action="/register" method="post">
+                    {% csrf_token %}
+                    <label>First Name: </label>
+                    <input type="text" name="first_name" class="form-control form-group">
+                    <label>Last Name: </label>
+                    <input type="text" name="last_name" class="form-control form-group">
+                    <label>Email: </label>
+                    <input type="text" name="email" class="form-control form-group">
+                    <label>Password: </label>
+                    <input type="text" name="password" class="form-control form-group">
+                    <label>Comfirm Password: </label>
+                    <input type="text" name="confirm_pw" class="form-control form-group">
+                    <label>Date of Birth: </label>
+                    <input type="date" name="dob" class="form-control form-group">
+                    <input type="submit" value="Register" class="btn btn-secondary">
+                </form>
+            </div>
+            <div class="col mt-3">
+                <h1>Login</h1>
+                <form action="/login" method="post">
+                    {% csrf_token %}
+                    <label>Email: </label>
+                    <input type="text" name="email" class="form-control form-group">
+                    <label>Password: </label>
+                    <input type="text" name="password" class="form-control form-group">
+                    <input type="submit" value="Login" class="btn btn-secondary">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
