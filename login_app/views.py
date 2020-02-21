@@ -29,12 +29,13 @@ def login(request):
     else:
         user = User.objects.get(email=request.POST['email'])
         request.session['user_name'] = user.first_name
+        request.session['user_id'] = user.id
         messages.success(request, "Successfully registered (or logged in)!")
         return redirect('/success')
         
 def success(request):
     errors = User.objects.validate_success(request.session)
-    if len(errors) > 0: # permission denied appears twice
+    if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
         return redirect('/')
